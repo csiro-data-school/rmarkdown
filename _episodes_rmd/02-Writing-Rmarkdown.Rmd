@@ -1,0 +1,76 @@
+---
+title: Introduction to Rmarkdown
+teaching: 0
+exercises: 0
+questions:
+- "What is markdown/Rmarkdown?"
+- "How do I turn an Rmarkdown file into a report?"
+objectives:
+- "To understand how Rmarkdown files are written."
+- "To integrate text descriptions with code and outputs."
+- "To adjust parameters that customise a report's appearance"
+keypoints:
+- "Markdown is a way of writing text files in a *structured* way."
+- "Rmarkdown allows integration of R code with markdown."
+- "Chunk options can be used to control formatting."
+source: Rmd
+---
+
+```{r chunk_options, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("02-")
+```
+
+How does it work?
+
+(Ex.) New Rmd in RStudio, delete everything after YAML -> YAML is some *metadata* and options about how to process
+
+Show some options for YAML data? 
+(Ex.) Add author, date
+
+Knit it, talk about output. Rmd vs Preview, vs html file
+
+Intro to md markup format
+	# Headers
+	## Headers
+	*ital*
+	**bold**
+
+	[link](http://)
+	!["Pretty figure"](fig/img.png)
+
+	 - lista
+	 - listb
+
+	1) step1
+	2) step2
+
+	Footnotes [^X]
+	[^X]: explanation
+	
+	`verbatim code` (like slack)
+	
+(Ex.) Write some notes on course so far "Notes.Rmd". Headers, 'paras', lists, link to lessons? Knit it again
+
+Integrating R code
+	Code chunks - demo - Two step process, knitr runs code, formats as md. Then
+	Read data, manipulate and print df, basic plot
+
+	Break out into different sections, setup, manip, plot
+
+	First one manually, second by highlighting and using insert again
+
+	Chunk options. Which of "Run code, show code, show output" do we want for each block. Tick all that apply
+
+	show table of options with all that apply (eval, echo, results) all default to TRUE
+	
+	(Ex.) Which options need to change for the three blocks? Demo first, do rest alone
+
+	Move chunks to appropriate part of file, reknit.
+
+	(Ex.) fig.width/height options, size in inches. DIY some changes
+
+	Set global options in settings chunk `knitr::opts_chunk$set(fig.width=6, fig.height=6)`
+
+	*Inline code*
+	Describe why filtering down to one country by explaining `r nrow(gapminder)/12` countries is too many.

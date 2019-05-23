@@ -1,0 +1,35 @@
+---
+title: Alternative outputs
+teaching: 0
+exercises: 0
+questions:
+- "What output formats can I create?"
+objectives:
+- "Produce several output formats from a single .Rmd document"
+- "Adjust content to be appropriate for the output format"
+keypoints:
+- "Control the output format in the YAML with `output:` "
+- "References can used in bibtex format"
+source: Rmd
+---
+
+```{r chunk_options, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("04-")
+```
+
+Alternate outputs
+	change to word doc
+
+	(Ex.) Make word doc. Feel proud. What is the problem now?	
+
+	try to make pdf
+	slides? Which format to show (maybe show two)?
+
+	(Ex. Make a slide show of your data -- cf. day 1 -- With a little description of the data, how you manipulate it, and some plots. Not to show today unless you really want to. Be proud, we're nearly half way through the course and you are all doing great. Try and find time to show the pres to a colleague or manager -- make them jealous of your new skills :))
+
+	Using for paper submission?
+	**References**
+	Use some of Hadley's papers?
+
+	Write books? - r4ds site example

@@ -1,0 +1,36 @@
+---
+title: Parameterised reports
+teaching: 0
+exercises: 0
+questions:
+- "How can I run reports multiple times with different settings?"
+- "How can I ensure my work is reproducible?"
+objectives:
+- "Set parameters to customise reports"
+- "Rerun analyses with changed parameters to change the outputs"
+- "Describe approaches to increase reproducibility of your work"
+keypoints:
+- "Set parameters in the YAML with `params:`"
+- "Access parameters in code using `params$<NAME>`"
+- "Create multiple documents from the same .Rmd document using `rmarkdown::render`"
+source: Rmd
+---
+
+```{r chunk_options, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("03-")
+```
+
+
+Parameterising with Rmarkdown
+	Hide all code blocks for external clients by parameterising echo in your global options
+	
+	(Ex.) Change country for plot with parameters
+	
+
+Rmd docs to drive reproducibility
+	- Don't hard code directories - relative paths and self contained projects
+	
+	- Run clean (does it work if you restart RStudio and knit immediately?)
+
+	- Track with git -> link code changes with output changes
