@@ -61,7 +61,7 @@ with code to produce a document that is both human and computer readable.
 
 ## Markdown as universal format
 
-We will be using Rmarkdown to create reports, which as the name suggests mixes R code 
+We will be using R Markdown to create reports, which as the name suggests mixes R code 
 with Markdown. [Markdown](https://www.markdownguide.org/) is a light-weight mark-up 
 language initially created for writing simple web pages. A number of other conversion options exist
 however, allowing us to turn Rmarkdown files into HTML, PDF, Word, and other document formats.
@@ -72,7 +72,7 @@ as needed if the input data changes.
 > ## Discussion
 > What are some of the potential benefits of this approach in your own work? Are there any 
 > challenges you can identify?
-{:. discussion}
+{:.discussion}
 
 > ## Know your audience
 > As these documents are not just code for yourself, but outputs that are meant to be shared with
@@ -80,3 +80,4 @@ as needed if the input data changes.
 > explaining a complex figure if you are producing a document for a more general audience. 
 > Conversely, a more technical audience may want a lot more detail about the particulars of 
 > your analysis methods before they will be interested in seeing your results.
+{:.callout}
