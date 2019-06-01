@@ -254,6 +254,10 @@ a unique name, as they will help you to fix errors and, if any graphs are
 produced, the file names are based on the name of the code chunk that
 produced them.
 
+To insert a new code chunk into your document, you can use the "Insert" button
+![](../fig/chunk_button.png){:height="30px"}{:style="display: inline; margin:0px"} or the keyboard
+shortcut <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (<kbd>Cmd</kbd>+<kbd>Opt</kbd>+<kbd>I</kbd> on a Mac).
+
 > ## Writing code
 > Make sure you have a copy of the gapminder data available. Then write a code chunk to:
 > 
@@ -262,28 +266,85 @@ produced them.
 > - Filter down to just the Australian data and print it to the screen
 > - Show a plot of the Australian population over time
 >
+> Save and Knit your document when you have finished.
 {:.challenge}
 
+You can have as many code chunks as you wish in an R Markdown document. They will all be run in the
+same environment, so can share variables between them. This allows you to break your code up so that 
+the outputs appear near the relevant text in your document.
 
-Integrating R code
-	Code chunks - demo - Two step process, knitr runs code, formats as md. Then
-	Read data, manipulate and print df, basic plot
+> ## Breaking it up
+> Put your code into three chunks. One for initialisation, one for data minipulation, and one for 
+> plotting.
+>
+> Save and Knit your document when you have finished.
+{:.challenge}
 
-	Break out into different sections, setup, manip, plot
+## Chunk options
+There are a variety of options we can set that control how the code chunks are treated and how their 
+output is produced. A full list of options can be found at the [knitr site](https://yihui.name/knitr/options/),
+but here are some common examples:
 
-	First one manually, second by highlighting and using insert again
+- `eval` controls if the code chunk is actually run.
+- `echo` controls if the code itself is shown in your document.
+- `results` controls how the outputs from your code are shown.
+- `warning` and `message` can be used to show/hide and warnings or messages produced by your code.
+- `fig.height` and `fig.width` control the size of the figures produced (in inches).
 
-	Chunk options. Which of "Run code, show code, show output" do we want for each block. Tick all that apply
+These options are added in the chunk header, separated by commas. So you might write:
 
-	show table of options with all that apply (eval, echo, results) all default to TRUE
+<pre>
+&#96;&#96;&#96;{r load_libraries, echo=FALSE, message=FALSE}
+library("tidyverse")
+&#96;&#96;&#96;
+</pre>
+
+to load the tidyverse package, but not show this code or the message it produces in the final document.
+
+> ## Finer control
+> For each of your three code chunks, decide if you need to run the code (`eval`), show the code (`echo`),
+> show any messages (`message`), and show the code outputs (`results`).
+>
+> Set the relevant chunk options based on your choices (all of these options default to `TRUE`).
+>
+> Change the `fig.height` and `fig.width` options for the plotting chunk to get a plot that fits in 
+> well with the rest of your document.
+{:.challenge}
+
+#### Global options
+
+Often there will be particular options that you'll want to use
+repeatedly; for this, you can set _global_ chunk options, like so:
+
+<pre>
+&#96;&#96;&#96;{r global_options}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, echo=FALSE, fig.width=11)
+&#96;&#96;&#96;
+</pre>
+
+> ## Changing everything
+>
+> Use chunk options to control the size of a figure and to hide the
+> code.
+{: .challenge}
 	
-	(Ex.) Which options need to change for the three blocks? Demo first, do rest alone
+## Inline code
 
-	Move chunks to appropriate part of file, reknit.
+You can make _any_ part of your report reproducible by using inline code. Use
+<code>&#96;r</code> and <code>&#96;</code> for an in-line code chunk,
+like so: <code>&#96;r mean(some_numbers)&#96;</code>. The code will be
+executed and replaced with the _value_ of the result.
 
-	(Ex.) fig.width/height options, size in inches. DIY some changes
+Don't let these in-line chunks get split across lines.
 
-	Set global options in settings chunk `knitr::opts_chunk$set(fig.width=6, fig.height=6)`
+If the inline part of the code would otherwise be too long, perhaps precede the paragraph with a 
+larger code chunk that does calculations and defines variables. This code chunk can be hidden by 
+setting the `echo=FALSE` and `results=FALSE` options, but the variables can then be referenced using
+an inline code chunk in the following paragraph.
 
-	*Inline code*
-	Describe why filtering down to one country by explaining "r nrow(gapminder)/12" countries is too many.
+> ## Coding inline
+>
+> Add a sentence at the bottom of your document that shows the versions of the software used to create
+> it. Using inline code sections, describe which version of R and the tidyverse package you are using
+> by calling `getRversion()` and `packageVersion("tidyverse")`.
+{:.challenge}
