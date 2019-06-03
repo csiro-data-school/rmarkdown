@@ -141,10 +141,46 @@ the R Markdown template.
 >{:.solution}
 {:.challenge}
 
+## Reproducibility
 
-<!-- Rmd docs to drive reproducibility -->
-<!-- 	- Don't hard code directories - relative paths and self contained projects -->
+Now that you have an understanding of the process of creating final documents from code. Let's return
+to the goal of making these reports _reproducible_. The goal is that we (or someone else) could take 
+our code and data and produce the same final output. 
 
-<!-- 	- Run clean (does it work if you restart RStudio and knit immediately?) -->
+With that goal in mind, a reminder of some recommendations to follow:
 
-<!-- 	- Track with git -> link code changes with output changes -->
+#### Keep everything in a single project folder
+
+Keeping all the files needed for a project in a single, self contained folder will help with portability.
+You can transfer a single folder to someone that contains everything they need to reproduce your analysis.
+
+#### Don't use absolute paths for files
+
+When referring to files within your code, use relative paths (`data/input.csv`) rather than absolute
+paths (`/Users/<your_name>/project/data/input.csv`). Absolute paths won't work on any machine but the
+one you wrote them for, and may not even work there if you move things around the file system.
+
+Keep everything in a single project directory and refer to files by their location within that directory.
+
+#### Include package version info
+
+We have already shown a small example of this using `getRversion()` and `packageVersion()`. You can 
+print all the version information about your script as it runs with `sessionInfo()`.
+
+A code chunk like:
+
+<pre>
+&#96;&#96;&#96;{r reproducibility_info}
+sessionInfo()
+&#96;&#96;&#96;
+</pre>
+
+at the end of your document will include information about your R version, operating system and the 
+versions of any packages you have loaded.
+
+#### Test your reproducibility
+
+There's nothing worse than expecting to be able to recreate a document but running into errors. Don't 
+feel shy about testing this out by backing up and deleting your output files and trying to recreate 
+them. It's far better to learn of any reproducibility issues so that you can fix them *before* they
+become a problem.
