@@ -3,7 +3,7 @@
 # Instead, please edit 03-Parameterising-Output.md in _episodes_rmd/
 title: Parameterised reports
 teaching: 20
-exercises: 50
+exercises: 40
 questions:
 - "How can I run reports multiple times with different settings?"
 - "How can I ensure my work is reproducible?"

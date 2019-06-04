@@ -3,7 +3,7 @@
 # Instead, please edit 04-Alternative-Outputs.md in _episodes_rmd/
 title: Alternative outputs
 teaching: 15
-exercises: 45
+exercises: 40
 questions:
 - "What output formats can I create?"
 objectives:
